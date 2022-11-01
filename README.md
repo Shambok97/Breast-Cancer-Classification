@@ -12,5 +12,18 @@ the entropy of the data set to check for the randomness of the information that 
 
 ### Random Forest
 
+As discussed before, the random forest algorithm comprises of multiple decision trees. In our algorithm, we first split the dataset into k folds with the same split as decision trees (75%- 25% train-test) for evaluation. The forest comprised of 10 decision trees. The accuracy of the model is directly proportional to the number of trees in the forest and in our case, Tree 1 gave a mean accuracy of 89.91%, Tree 5 gave 93.62% and lastly Tree 10 produced a test mean accuracy of 94.16%. This is consistent with previous literature suggesting greater number of trees would produce better results since it is able to draw from a larger amount of votes from the previous nodes.
+
+### K-Nearest Neighbour
+
+The data was split for cross validation and testing stages and since a new proximal feature is compared ev- ery time, the training stage of the KNN did not exist. The Euclidean distance was calculated with the help of the scipy package in python. The prediction function cal- culated the distance between a test data point and every training data point and then sort the distances and pick K nearest distances(first K entries) from it. It further proceeded on to selecting labels of the closest K neighbour and the one with the majority of votes resulted in being the predicted label for the test data point. The results suggested that when k= 3, the optimal value of accuracy was achieved at 92.1% with the least error rates. 
+
+##  Limitations and Future Directions
+
+Our results produced successful implementation of su- pervised learning to predict the classification of breast tu- mours, benign or malignant, based on the features avail- able. We were able to show that with sufficient training, the models were able to predict classification of tumours with up to 94% accuracy. However, it is important to train the model to as close to 100% test accuracy as possible, since we are modelling sensitive medical data that could potentially combat false positive and negative results. One of the ways this could be done is imple- menting the same algorithms on a larger data set, which would produce a higher accuracy and prevent over-fitting of data. Furthermore, we were also limited building the model from scratch and were not able to use machine learning algorithm packages, such as Scikit-learn and Tensorflow, to create models based on Artificial Neural Networks and Support Vector Machines. Also, without the execution of such machine learning packages, KNN model did not give robust accuracy primarily due to only 600 rows of data being present. So for lesser data, SVM would po- tentially have provided a more accurate outcome since it also accounts for outliers as well as utilises the relevant points for linear separation or support vectors.
+
+Moreover, we would have hoped to utilise optimisers, such as simulated annealing which is a probabilistic technique that would enable global optimisation by accepting states (features) which would produce a robust algorithm. This optimisation would produce a balance between exploit-explore trade-off, where the algorithm would produce the shortest route and accept necessary features and not in a stochastic manner, unlike the algorithms used to produce our results. This was not possible to do as we were unable to use machine learning algorithms at this time, however, this would be an area we would explore in the future to produce highest accuracy. We would also like to explore regularisation patterns in the future to prevent over-fitting the data. This would lower the complexity of neural networks, thus preventing over-fitting.
+
+
 
 
